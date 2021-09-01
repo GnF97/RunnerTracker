@@ -1,0 +1,31 @@
+{%  extends 'Clothes/layout.html' %}
+{% block content %}
+{%  include 'Clothes/status.html' %}
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+                    <th>Date</th>
+					<th>Mileage</th>
+					<th>Duration</th>
+					<th>Pace</th>
+				</tr>
+
+				{% for run in Runs %}
+
+				<tr>
+					<td>{{run.date}}</td>
+					<td>{{run.mileage}}</td>
+					<td>{{run.duration}}</td>
+                    <td>{{run.pace}}</td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

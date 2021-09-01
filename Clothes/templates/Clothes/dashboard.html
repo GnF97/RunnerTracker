@@ -1,0 +1,62 @@
+{%  extends 'Clothes/layout.html' %}
+
+{% block content %}
+
+{%  include 'Clothes/status.html' %}
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Shoez:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Add new shoe</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Shoe</th>
+					<th>milage</th>
+				</tr>
+
+				{% for shoe in Shoe %}
+					<tr>
+						<td><a href="{% url 'shoez' shoe.id %}">{{shoe.nameS}}</a></td>
+						<td>{{shoe.milage}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 RUNS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_run' %}">Add new run</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Date</th>
+					<th>Mileage</th>
+					<th>Duration</th>
+					<th>Pace</th>
+				</tr>
+
+				{% for run in Runs %}
+					<tr>
+						<td>{{run.date}}</td>
+						<td>{{run.mileage}}</td>
+						<td>{{run.duration}}</td>
+                        <td>{{run.pace}}</td>
+						<td><a href="">Update</a></td>
+						<td><a href="">Delete</a></td>
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

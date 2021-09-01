@@ -1,0 +1,15 @@
+{%  extends 'Clothes/layout.html' %}
+{% load static %}
+{% block content %}
+
+<form action="" method="POST">
+    {{ Forms.management_form }}
+    {% csrf_token %}
+    {% for form in Forms %}
+        {{form}}
+        <hr>
+    {% endfor %}
+    <input type="submit" name="Submit">
+</form>
+
+{% endblock %}

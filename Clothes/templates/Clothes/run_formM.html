@@ -1,0 +1,12 @@
+{%  extends 'Clothes/layout.html' %}
+{% load static %}
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{Form}}
+        <hr>
+    <input type="submit" name="Submit">
+</form>
+
+{% endblock %}
